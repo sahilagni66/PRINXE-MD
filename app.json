@@ -46,6 +46,16 @@
       "required": false,
       "value": "true"
       },
+    "STATUS_MESSAGE": {
+      "description": "Type your status reply message to send auto message to your contacts status",
+      "required": false,
+      "value": "🩵ʏᴏᴜʀ sᴛᴀᴛᴜs sᴇᴇɴ sᴜᴄᴄᴇssғᴜʟʟʏ😍\n😎ʙʏ *ᴘʀɪɴᴄᴇ ᴍᴅ* ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ🩵"
+      },
+    "STATUS_REPLY": {
+      "description": "Make it true or false to turn on/off Auto status message to your contacts",
+      "required": false,
+      "value": "true"
+      },
     "VIEWONCE": {
       "description": "Make true if wanna get view once message",
       "required": false,
