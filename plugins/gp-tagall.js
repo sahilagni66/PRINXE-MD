@@ -1,6 +1,6 @@
 let handler = async (m, { conn, text, participants, isAdmin, isOwner, groupMetadata }) => {
     let users = participants.map(u => u.id).filter(v => v !== conn.user.jid)
-    m.reply(`🔮⃞ㅤ Gɾσυρ Nαɱҽ : *${groupMetadata.subject}*\n\n 🎀̫҂ MҽɱႦҽɾʂ : *${participants.length}*${text ? `\n𒁷 Mҽʂʂαɠҽ : ${text}\n` : ''}\n\n┌───⊷ 𝐓ꭤ̱ꬶꤦᥣі𝗌̱𝗍\n` + users.map(v => '🥮ᩧᩙᩪᩩ̶̷ ㅤ ͟ ͟ ͟ ͟   @' + v.replace(/@.+/, '')).join`\n` + '\nඉᩧ ㅤ🧺ᩙ꤬ㅤ𝐋ıᩧ𝖿ᧉׅ ıᩧꗏ ᥣıᩧ𝗂ƙᧉׅ α 𝖼ⱺıᩧɳ. 𝐘ⱺυ 𝖼αɳ ꗏρᧉׅɳᑯ 𝗂ƚ α𐓣ყ ωαყ ყⱺυ ωıᩧ𝗌ɦ , ᑲυ𝗍 ყⱺυ ⱺɳᥣ𝗒 ꗏρᧉׅɳᑯ ıᩧƚ ⱺɳ𝖼ᧉׅ. ൭ㅤᰰᮬㅤ̣', null, {
+    m.reply(`͏██ 𝐆𝗋ⱺ⃢υρ 𝐍α︪︣ꭑ𝖾 : *${groupMetadata.subject}*\n\n ͏██ 𝐌︪︣𝖾ꭑᑲ⃢𝖾𝗋𝗌 : *${participants.length}*${text ? `\n♟️⃟︪︣ 𝐌𝖾𝗌⃟𝗌α𝗀𝖾 : ${text}\n` : ''}\n\n 𝐓︪α︣𝗀ᥣ𝗂𝗌𝗍\n` + users.map(v => '🥮ᩧᩙᩪᩩ̶̷ ㅤ ͟ ͟ ͟ ͟   @' + v.replace(/@.+/, '')).join`\n` + '\n *𝆭 𝆺̸̶𝅥⃝🍶⃞.   Ხᧉ ࣪ ɑ ׅ ᥎𐐫𝗂᧑︪︩ᧉ ࣪ ᥰᨭ𝗍 . ׄɑᥰ ࣪ ᧉ᧑͠ɦ𐐫 ׅ࣪  .⛲⃝* ', null, {
         mentions: users
     })
 }
