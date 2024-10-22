@@ -118,7 +118,7 @@
 "google-it": "^1.6.3",
 "youtube-yts": "^2.0.0", 
 "youtubedl-core": "^4.11.7",
-"ytdl-core": "npm:@distube/ytdl-core"
+"ytdl-core": "*"
 },
   "optionalDependencies": {
     "@xct007/frieren-scraper": "*"
