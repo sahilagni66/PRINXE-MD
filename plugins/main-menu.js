@@ -1,57 +1,516 @@
-// PRINCE PROPERTY DON'T TOUCH IT OTHERWISE YOU WILL BE FAMOUS IN THE DEPLOYERS AS A CODE THEIF AND JUNIOR DEVELOPER
+import { createHash } from 'crypto'
+import PhoneNumber from 'awesome-phonenumber'
+import { canLevelUp, xpRange } from '../lib/levelling.js'
+import fetch from 'node-fetch'
+import fs from 'fs'
+const { levelling } = '../lib/levelling.js'
+import moment from 'moment-timezone'
+import { promises } from 'fs'
+import { join } from 'path'
+const time = moment.tz('Asia/Karachi').format('HH')
+let wib = moment.tz('Asia/Karachi').format('HH:mm:ss')
+//import db from '../lib/database.js'
+
+let handler = async (m, { conn, usedPrefix, command}) => {
+    let d = new Date(new Date + 3600000)
+    let locale = 'en'
+    let week = d.toLocaleDateString(locale, { weekday: 'long' })
+    let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
+    let _uptime = process.uptime() * 1000
+    let uptime = clockString(_uptime)
+let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+if (!(who in global.db.data.users)) throw `✳️ The user is not found in my database`
+let pp = (thumb)
+let user = global.db.data.users[who]
+let { name, exp, diamond, lastclaim, registered, regTime, age, level, role, warn } = global.db.data.users[who]
+let { min, xp, max } = xpRange(user.level, global.multiplier)
+let username = conn.getName(who)
+let math = max - xp
+let prem = global.prems.includes(who.split`@`[0])
+let sn = createHash('md5').update(who).digest('hex')
+let totaluser = Object.values(global.db.data.users).length 
+let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
+let more = String.fromCharCode(8206)
+let readMore = more.repeat(850) 
+let greeting = ucapan()
+let quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
+let str = ` *𝐅𝖾ᥣ𝗂𝗑 𝐊α 𝐁ⱺ𝗍*
+
+
+▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒  𝐖𝖾ᥣ𝖼⃢ⱺꭑ𝖾 𝐓⃕ⱺ 𝐅𝖾ᥣ⃝𝗂𝗑 𝐌𝖾𐓣υ⃭ ▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒  
+
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＱｕｒａｎＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＳｔｕｄｙＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＯｗｎｅｒＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＢｏｔＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＧｒｏｕｐＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＤｌＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＴｏｏｌＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＳｔｉｃｋｅｒＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＦｕｎＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＧａｍｅＭｅｎｕ
+͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＬｏｇｏＭｅｎｕ
+
+▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒   *${usedPrefix}𝐌𝖾𐓣υ 2 𝐅ⱺ𝗋 𝐂ⱺꭑꭑα𐓣ᑯ 𝐋𝗂𝗌𝗍*
+▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒   *${usedPrefix}𝐌𝖾𐓣υ 3 𝐅ⱺ𝗋 𝐂ⱺꭑꭑα𐓣ᑯ 𝐋𝗂𝗌𝗍*
+
+
+ *𝆭 𝆺̸̶𝅥⃝🍶⃞.   Ხᧉ ࣪ ɑ ׅ ᥎𐐫𝗂᧑︪︩ᧉ ࣪ ᥰᨭ𝗍 . ׄɑᥰ ࣪ ᧉ᧑͠ɦ𐐫 ׅ࣪  .⛲⃝*
+╰━━━━━━━━━━━━━━━━━━━━━━━━╯
+  ֺ ⃝🍷 *_Ｑｕｏｔｅ: ${quote}_*   ֺ ⃝🍷
+${readMore}
 
 
 
+╭━━━⊱『 *ᴅᴏᴡɴʟᴏᴀᴅᴇʀ* 』⊱━━━╮
+│◈
+│◈
+│◈   .ғᴀᴄᴇʙᴏᴏᴋ <ᴜʀʟ>
+│◈   .ɢᴅʀɪᴠᴇ <ᴜʀʟ>
+│◈   .ɢɪᴛᴄʟᴏɴᴇ <ᴜʀʟ>
+│◈   .ɪɢsᴛᴀʟᴋ
+│◈   .ɪɴsᴛᴀɢʀᴀᴍ
+│◈   .ᴍᴇᴅɪᴀғɪʀᴇ <ᴜʀʟ>
+│◈   .ᴍᴇɢᴀ
+│◈   .ᴍᴏᴅᴀᴘᴋ
+│◈   .ᴘʟᴀʏ <ϙᴜᴇʀʏ>
+│◈   .ᴘʟᴀʏʏ <ᴛᴇxᴛ>
+│◈   .ᴠɪᴅᴇᴏ <ᴛᴇxᴛ>
+│◈   .ᴛɪᴋᴛᴏᴋ <ᴜʀʟ>
+│◈   .ᴛɪᴋᴛᴏᴋsᴛᴀʟᴋ
+│◈   .ᴛᴡɪᴛᴛᴇʀ <ᴜʀʟ>
+│◈   .ʏᴛᴀ <ᴜʀʟ>
+│◈   .ʏᴛᴅʟ <ᴜʀʟ>
+│◈   .ʏᴛᴠ <ᴜʀʟ>
+│◈   .ʏᴛᴍᴘ3 <ᴜʀʟ>
+│◈   .ʏᴛsᴇᴀʀᴄʜ <ϙᴜᴇʀʏ>
+│◈   .ʏᴛᴍᴘ4 <ʏᴛ-ʟɪɴᴋ>
+│◈   .ᴡᴀʟʟᴘᴀᴘᴇʀ <ϙᴜᴇʀʏ>
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+  
+╭━━━━⊱『 *ɢʀᴏᴜᴘ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ɢᴇᴛʙɪᴏ <@ᴛᴀɢ/ʀᴇᴘʟʏ>  Ⓛ
+│◈   .ᴀɴɪᴍᴇϙᴜᴏᴛᴇ
+│◈   .Sᴇᴛᴅᴇsᴄ <ᴛᴇxᴛ>
+│◈   .sᴇᴛɴᴀᴍᴇ <ᴛᴇxᴛ>
+│◈   .ᴀᴅᴅ
+│◈   .ᴅᴇʟᴇᴛᴇ
+│◈   .ᴅᴇʟᴡᴀʀɴ @ᴜsᴇʀ
+│◈   .ᴅᴇᴍᴏᴛᴇ (@ᴛᴀɢ)
+│◈   .ɪɴғᴏɢᴘ
+│◈   .ʜɪᴅᴇᴛᴀɢ
+│◈   .ɪɴᴠɪᴛᴇ <923xxx>
+│◈   .ᴋɪᴄᴋ @ᴜsᴇʀ
+│◈   .ʟɪɴᴋ
+│◈   .ᴘᴏʟʟ ϙᴜᴇsᴛɪᴏɴ|ᴏᴘᴛɪᴏɴ|ᴏᴘᴛɪᴏɴ
+│◈   .ᴘʀᴏғɪʟᴇ
+│◈   .ᴘʀᴏᴍᴏᴛᴇ
+│◈   .ʀᴇsᴇᴛʟɪɴᴋ
+│◈   .sᴇᴛʙʏᴇ <ᴛᴇxᴛ>
+│◈   .ɢʀᴏᴜᴘ *ᴏᴘᴇɴ/ᴄʟᴏsᴇ*
+│◈   .sᴇᴛᴡᴇʟᴄᴏᴍᴇ <ᴛᴇxᴛ>
+│◈   .sɪᴍᴜʟᴀᴛᴇ <ᴇᴠᴇɴᴛ> @ᴜsᴇʀ
+│◈   .sᴛᴀғғ
+│◈   .ᴛᴀɢᴀʟʟ
+│◈   .ᴛᴏᴛᴀɢ
+│◈   .ᴡᴀʀɴ @ᴜsᴇʀ
+│◈   .ᴡᴀʀɴs
+│◈   .ᴍᴀɪɴ
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+  
+  
+╭━━━━⊱『 *ᴏᴡɴᴇʀ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ᴀᴅᴅᴘʀᴇᴍ <@ᴛᴀɢ>
+│◈   .ᴀᴅᴅᴏᴡɴᴇʀ @ᴜsᴇʀ
+│◈   .ᴀʟʟᴏᴡ <@ᴛᴀɢ>
+│◈   .HEROKU
+│◈   .ʙᴀɴ @ᴜsᴇʀ
+│◈   .ʙᴀɴᴄʜᴀᴛ
+│◈   .ᴛx
+│◈   .ʙʀᴏᴀᴅᴄᴀsᴛɢʀᴏᴜᴘ <ᴛᴇxᴛ>
+│◈   .ʙᴄɢᴄ <ᴛᴇxᴛ>
+│◈   .ᴄʟᴇᴀʀᴛᴍᴘ
+│◈   .ᴅᴇʟᴇxᴘɪʀᴇᴅ
+│◈   .ᴅᴇʟᴘʀᴇᴍ @ᴜsᴇʀ
+│◈   .ʀᴇᴍᴏᴠᴇᴏᴡɴᴇʀ @ᴜsᴇʀ
+│◈   .sᴇᴛᴘᴘʙᴏᴛғᴜʟʟ
+│◈   .ɢᴇᴛᴘʟᴜɢɪɴ <ɴᴀᴍᴇ ғɪʟᴇ>
+│◈   .ɢᴇᴛғɪʟᴇ <ɴᴀᴍᴇ ғɪʟᴇ>
+│◈   .ᴊᴏɪɴ <ᴄʜᴀᴛ.ᴡʜᴀᴛsᴀᴘᴘ.ᴄᴏᴍ> <ᴅɪᴀs>
+│◈   .ʀᴇsᴇᴛ <92xxx>
+│◈   .ʀᴇsᴇᴛᴘʀᴇғɪx
+│◈   .ʀᴇsᴛᴀʀᴛ
+│◈   .sᴇᴛᴘʀᴇғɪx [sʏᴍʙᴏʟ]
+│◈   .ᴜɴʙᴀɴ @ᴜsᴇʀ
+│◈   .ᴜɴʙᴀɴᴄʜᴀᴛ
+│◈   .ᴄᴏɴғɪɢ
+│◈   .ʟɪsᴛʙᴀɴ
+│◈   .ᴅᴇʟᴇᴛᴇᴘʟᴜɢɪɴ <ɴᴀᴍᴇ>
+│◈   .ᴘʟᴜɢɪɴs
+│◈   .ɪɴsᴛᴀʟʟ <Gɪsᴛ URL>
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+╭━━━━⊱『 *ᴛᴏᴏʟs* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ɴᴏᴡᴀ
+│◈   .ϙʀ <ᴛᴇxᴛ>
+│◈   .ϙʀᴄᴏᴅᴇ <ᴛᴇxᴛ>
+│◈   .sᴛʏʟᴇ <ᴋᴇʏ> <ᴛᴇxᴛ>
+│◈   .ᴡᴇᴀᴛʜᴇʀ *<ᴘʟᴀᴄᴇ>*
+│◈   .ᴅᴇʜᴀᴢᴇ
+│◈   .ʀᴇᴄᴏʟᴏʀ
+│◈   .ʜᴅʀ
+│◈   .ʟᴇɴɢᴛʜ <ᴀᴍᴏᴜɴᴛ>
+│◈   .ᴛɪɴʏᴜʀʟ <ʟɪɴᴋ>
+│◈   .sʜᴏʀᴛᴇɴ <ʟɪɴᴋ>
+│◈   .ᴛᴇᴍᴘᴍᴀɪʟ
+│◈   .sʜᴀᴢᴀᴍ
+│◈   .ᴄᴀʟ <ᴇϙᴜᴀᴛɪᴏɴ>
+│◈   .ᴄᴀʀʙᴏɴ <ᴄᴏᴅᴇ>
+│◈   .ᴅᴇғɪɴᴇ <ᴡᴏʀᴅ>
+│◈   .ᴇʟᴇᴍᴇɴᴛ
+│◈   .ɢᴏᴏɢʟᴇ
+│◈   .ɪᴛᴜɴᴇs
+│◈   .ʟʏʀɪᴄs
+│◈   .ɪᴍᴅʙ
+│◈   .ᴄᴏᴜʀsᴇ
+│◈   .ʀᴀɴᴅᴏᴍᴄᴏᴜʀsᴇ
+│◈   .ʀᴇᴀᴅᴍᴏʀᴇ <ᴛᴇxᴛ1>|<ᴛᴇxᴛ2>
+│◈   .ʀᴇᴀᴅᴠᴏ
+│◈   .ʀᴇᴍᴏᴠᴇʙɢ
+│◈   .ss <ᴜʀʟ>
+│◈   .ssғ <ᴜʀʟ>
+│◈   .sᴜʙʀᴇᴅᴅɪᴛ
+│◈   .ᴛᴇʟᴇsᴛɪᴄᴋᴇʀ  Ⓛ
+│◈   .ᴛᴏᴜʀʟ
+│◈   .ᴛʀᴀɴsʟᴀᴛᴇ <ʟᴀɴɢ> <ᴛᴇxᴛ>
+│◈   .ᴛʀᴜᴇ
+│◈   .ᴛᴛs <ʟᴀɴɢ> <ᴛᴀsᴋ>
+│◈   .ᴡᴀ
+│◈   .ᴡɪᴋɪᴘᴇᴅɪᴀ
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+  
+╭━━━━⊱『 *AI* 』⊱━━━━╮
+│◈
+│◈
+│◈  .ʙɪɴɢ
+│◈  .ᴅᴀʟʟᴇ
+│◈  .ɢᴘᴛ
+│◈  .ᴛᴏᴀɴɪᴍᴇ
+│◈  .ᴛᴏᴄᴀʀᴛᴏᴏɴ
+│◈  .ᴀɪ
+│◈  .ʙᴀʀᴅ
+│◈  .ᴀʟᴇxᴀ
+│◈  .ɢᴘᴛ2
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+  
+╭━━━━⊱『 *ʀᴇʟɪɢɪᴏɴ* 』⊱━━━╮
+│◈
+│◈ .ϙᴜʀᴀɴᴍᴇɴᴜ ғᴏʀ ɢᴇᴛᴛɪɴɢ ɴᴜᴍʙᴇʀ
+│◈ .ϙᴜʀᴀɴ [sᴜʀᴀʜ_ɴᴜᴍʙᴇʀ|sᴜʀᴀʜ_ɴᴀᴍᴇ]
+│◈
+╰━━━━━━━━━━━━━━━━━╯
 
 
+ ╭━━⊱• *sᴛᴜᴅʏᴍᴇɴᴜ* •⊱━━╮
+│◈
+│◈
+│◈   .ϙᴜʀᴀɴᴍᴇɴᴜ
+│◈   .sᴜʀᴀʜ 36  
+│◈   .ɢᴘᴛ
+│◈   .ɢᴘᴛ2    
+│◈   .ʙɪɴɢ  
+│◈   .ʙᴀʀᴅ 
+│◈   .ϙᴜᴏᴛᴇ  
+│◈   .ᴀɪsᴇᴀʀᴄʜ 
+│◈   .ᴅᴇғɪɴᴇ
+│◈   .ᴇʟᴇᴍᴇɴᴛ
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+  
+  
+╭━━━━⊱『 *Bᴏᴛ Mᴇɴᴜ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ᴘɪɴɢ
+│◈   .ʀᴜɴᴛɪᴍᴇ
+│◈   .sᴄʀɪᴘᴛ
+│◈   .sᴇʀᴠᴇʀ
+│◈   .ʙʟᴏᴄᴋʟɪsᴛ
+│◈   .ᴀʟɪᴠᴇ
+│◈   .ɪɴғᴏ
+│◈   .ᴏᴡɴᴇʀ
+│◈   .ᴛᴏᴛᴀʟғᴇᴀᴛᴜʀᴇ
+│◈   .ʟɪsᴛ
+│◈   .ᴄʀɪsᴛɪᴀɴᴏʀᴏɴᴀʟᴅᴏ
+│◈   .ᴄʀ7
+│◈   .ᴘᴘᴄᴏᴜᴘʟᴇ 
+│◈   .ᴘᴘᴄᴘ
+│◈   .ᴘɪɴᴛᴇʀᴇsᴛ
+│◈   .ᴍʏsɴ
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+  
+╭━━━━⊱『 *ʀᴇᴀᴄᴛɪᴏɴ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ʙᴜʟʟʏ @ᴛᴀɢ
+│◈   .ᴄᴜᴅᴅʟᴇ @ᴛᴀɢ
+│◈   .ᴄʀʏ @ᴛᴀɢ
+│◈   .ʜᴜɢ @ᴛᴀɢ
+│◈   .ᴀᴡᴏᴏ @ᴛᴀɢ
+│◈   .ᴋɪss @ᴛᴀɢ
+│◈   .ʟɪᴄᴋ @ᴛᴀɢ
+│◈   .ᴘᴀᴛ @ᴛᴀɢ
+│◈   .sᴍᴜɢ @ᴛᴀɢ
+│◈   .ʙᴏɴᴋ @ᴛᴀɢ
+│◈   .ʏᴇᴛ @ᴛᴀɢ
+│◈   .ʙʟᴜsʜ @ᴛᴀɢ
+│◈   .sᴍɪʟᴇ @ᴛᴀɢ
+│◈   .ᴡᴀᴠᴇ @ᴛᴀɢ
+│◈   .ʜɪɢʜғɪᴠᴇ @ᴛᴀɢ
+│◈   .ʜᴀɴᴅʜᴏʟᴅ @ᴛᴀɢ
+│◈   .ɴᴏᴍ @ᴛᴀɢ
+│◈   .ʙɪᴛᴇ @ᴛᴀɢ
+│◈   .ɢʟᴏᴍᴘ @ᴛᴀɢ
+│◈   .sʟᴀᴘ @ᴛᴀɢ
+│◈   .ᴋɪʟʟ @ᴛᴀɢ
+│◈   .ʜᴀᴘᴘʏ @ᴛᴀɢ
+│◈   .ᴡɪɴᴋ @ᴛᴀɢ
+│◈   .ᴘᴏᴋᴇ @ᴛᴀɢ
+│◈   .ᴅᴀɴᴄᴇ @ᴛᴀɢ
+│◈   .ᴄʀɪɴɢᴇ @ᴛᴀɢ
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+  
+  
+╭━━━━⊱『 *ғᴜɴ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ᴀғᴋ <ʀᴇᴀsᴏɴ>
+│◈   .ᴛᴏᴍᴘ3
+│◈   .ᴛᴏᴀᴠ
+│◈   .ʙᴏᴛ
+│◈   .ᴄʜᴀʀᴀᴄᴛᴇʀ @ᴛᴀɢ
+│◈   .ᴅᴀʀᴇ
+│◈   .ғʟɪʀᴛ
+│◈   .ɢᴀʏ @ᴜsᴇʀ
+│◈   .ᴘɪᴄᴋᴜᴘʟɪɴᴇ
+│◈   .ϙᴜᴇsᴛɪᴏɴ
+│◈   .sʜᴀʏᴀʀɪ
+│◈   .sʜɪᴘ
+│◈   .ʏᴏᴍᴀᴍᴀᴊᴏᴋᴇ
+│◈   .ᴛʀᴜᴛʜ
+│◈   .ᴡᴀsᴛᴇ @ᴜsᴇʀ
+│◈   .ɪᴍᴀɢᴇ
+│◈   .ᴍᴇᴍᴇ
+│◈   .ϙᴜᴏᴛᴇ
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+ 
+╭━━━━⊱『 *ɢᴀᴍᴇ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .sʟᴏᴛ <ᴀᴍᴏᴜɴᴛ>
+│◈   .ᴄʜᴇss [ғʀᴏᴍ ᴛᴏ]
+│◈   .ᴄʜᴇss ᴅᴇʟᴇᴛᴇ
+│◈   .ᴄʜᴇss ᴊᴏɪɴ
+│◈   .ᴄʜᴇss sᴛᴀʀᴛ
+│◈   .ᴅᴇʟᴛᴛᴛ
+│◈   .ɢᴜᴇssғʟᴀɢ
+│◈   .Mᴀᴛʜs <ᴍᴏᴅᴇs>
+│◈   .ᴘᴘᴛ <ʀᴏᴄᴋ/ᴘᴀᴘᴇʀ/sᴄɪssᴏʀs>
+│◈   .ᴛɪᴄᴛᴀᴄᴛᴏᴇ <ᴛᴀɢ ɴᴜᴍʙᴇʀ>
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+  
+╭━━━━⊱『 *ᴍᴀᴋᴇʀ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ʙʟᴜʀ
+│◈   .ᴅɪғᴜᴍɪɴᴀʀ2
+│◈   .ʜᴏʀɴʏᴄᴀʀᴅ
+│◈   .ʜᴏʀɴʏʟɪᴄᴇɴsᴇ
+│◈   .ɢғx1
+│◈   .ɢғx2
+│◈   .ɢғx3
+│◈   .ɢғx4
+│◈   .ɢғx5
+│◈   .ɢғx6
+│◈   .ɢғx7
+│◈   .ɢғx8
+│◈   .ɢғx9
+│◈   .ɢғx10
+│◈   .ɢғx11
+│◈   .ɢғx12
+│◈   .sɪᴍᴘᴄᴀʀᴅ
+│◈   .ɪᴛssᴏsᴛᴜᴘɪᴅ
+│◈   .ɪss
+│◈   .sᴛᴜᴘɪᴅ
+│◈   .ᴛᴡᴇᴇᴛ <ᴄᴏᴍᴍᴇɴᴛ>
+│◈   .ʟᴏʟɪᴄᴏɴ
+│◈   .ʏᴛᴄᴏᴍᴍᴇɴᴛ <ᴄᴏᴍᴍᴇɴᴛ>
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
 
 
+╭━━━━⊱『 *sᴛɪᴄᴋᴇʀ* 』⊱━━━━╮
+│◈
+│◈ 
+│◈   .ᴇᴍᴏᴊɪᴍɪx <ᴇᴍᴏᴊɪ+ᴇᴍᴏᴊɪ>
+│◈   .ɢᴇᴛsᴛɪᴄᴋᴇʀ
+│◈   .sᴍᴀᴋᴇʀ
+│◈   .sᴛɪᴄᴋᴇʀᴡɪᴛʜᴍᴇᴍᴇ (ᴄᴀᴘᴛɪᴏɴ|ʀᴇᴘʟʏ ᴍᴇᴅɪᴀ)
+│◈   .sᴡᴍᴇᴍᴇ <ᴜʀʟ>
+│◈   .sᴡᴍ(ᴄᴀᴘᴛɪᴏɴ|ʀᴇᴘʟʏ ᴍᴇᴅɪᴀ)
+│◈   .sғᴜʟʟ
+│◈   .ᴛᴏɪᴍɢ <sᴛɪᴄᴋᴇʀ>
+│◈   .ᴛᴏᴠɪᴅ
+│◈   .ᴛʀɪɢɢᴇʀ <@ᴜsᴇʀ>
+│◈   .ᴛᴛᴘ
+│◈   .ᴛᴛᴘ2
+│◈   .ᴛᴛᴘ3
+│◈   .ᴛᴛᴘ4
+│◈   .ᴛᴛᴘ5
+│◈   .ᴀᴛᴛᴘ
+│◈   .ᴀᴛᴛᴘ2
+│◈   .ᴀᴛᴛᴘ3
+│◈   .ᴛᴀᴋᴇ <ɴᴀᴍᴇ>|<ᴀᴜᴛʜᴏʀ>
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+ 
+╭━━━━⊱『 *ᴀᴜᴅɪᴏ* 』⊱━━━━╮
+│◈
+│◈
+│◈   .ʙᴀss [ᴠɴ]
+│◈   .ʙʟᴏᴡɴ [ᴠɴ]
+│◈   .ᴅᴇᴇᴘ [ᴠɴ]
+│◈   .ᴇᴀʀʀᴀᴘᴇ [ᴠɴ]
+│◈   .ғᴀsᴛ [ᴠɴ]
+│◈   .ғᴀᴛ [ᴠɴ]
+│◈   .ɴɪɢʜᴛᴄᴏʀᴇ [ᴠɴ]
+│◈   .ʀᴇᴠᴇʀsᴇ [ᴠɴ]
+│◈   .ʀᴏʙᴏᴛ [ᴠɴ]
+│◈   .sʟᴏᴡ [ᴠɴ]
+│◈   .sᴍᴏᴏᴛʜ [ᴠɴ]
+│◈   .ᴛᴜᴘᴀɪ [ᴠɴ]
+│◈
+│◈
+╰━━━━━━━━━━━━━━━━━╯
+
+  
+💌𝘗𝘙𝘐𝘕𝘊𝘌-𝘉𝘖𝘛-𝘔𝘋💌   
+`
 
 
+    conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, false)
+    m.react(done)
 
+}
+handler.help = ['main']
+handler.tags = ['group']
+handler.command = ['menu', 'help','h','commands'] 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const _0x275e06=_0x388f;(function(_0x8c30ab,_0x4c431f){const _0x2baf5c=_0x388f,_0x152f51=_0x8c30ab();while(!![]){try{const _0x2a32f3=-parseInt(_0x2baf5c(0x18c))/0x1*(parseInt(_0x2baf5c(0x16a))/0x2)+parseInt(_0x2baf5c(0x140))/0x3*(-parseInt(_0x2baf5c(0x14f))/0x4)+-parseInt(_0x2baf5c(0x1af))/0x5+-parseInt(_0x2baf5c(0x152))/0x6+-parseInt(_0x2baf5c(0x18d))/0x7+parseInt(_0x2baf5c(0x16d))/0x8*(-parseInt(_0x2baf5c(0x186))/0x9)+parseInt(_0x2baf5c(0x15a))/0xa;if(_0x2a32f3===_0x4c431f)break;else _0x152f51['push'](_0x152f51['shift']());}catch(_0x52bf23){_0x152f51['push'](_0x152f51['shift']());}}}(_0x5855,0x9b70f));import{promises}from'fs';import{join}from'path';function _0x5855(){const _0x4a79f8=['🎶\x20𝗔𝗨𝗗𝗜𝗢\x20𝗖𝗠𝗗𝗦','trimStart','map','Wage','(Ⓟ)','premium','233193ERUThe','after','🟢\x20𝗥𝗘𝗚𝗜𝗦𝗧𝗥𝗬\x20𝗖𝗠𝗗𝗦','numeric','𝗚𝗢𝗢𝗗\x20𝗡𝗢𝗢𝗡🌞','replace','description','length','disabled','*•\x20Bot\x20Ofc:*\x20wa.me/','*`◉\x20%category`*','parse','header','Funmenu*\x0a╠\x20🎮\x20*','\x20║\x0a╠\x20○\x20```%cmd```\x20\x20%islimit\x20%isPremium','8MeSAiy','@s.whatsapp.net','Quranmenu*\x0a╠\x20📚\x20*','4315632fqqBOV','ℹ️\x20𝗜𝗡𝗙𝗢𝗕𝗢𝗧\x20𝗖𝗠𝗗𝗦','homepage','-TN-u-ca-islamic','multiplier','120363199257221654@newsletter','filter','register','49420300YeoylJ','values','toString','⚙️\x20𝗚𝗥𝗢𝗨𝗣\x20𝗖𝗠𝗗𝗦','(ⓓ)','getRandom','𝗚𝗢𝗢𝗗\x20𝗔𝗙𝗧𝗘𝗥𝗡𝗢𝗢𝗡🌇','🔧\x20𝗧𝗢𝗢𝗟𝗦\x20𝗖𝗠𝗗𝗦','readFile','keys','DLmenu*\x0a╠\x20🧰\x20*','sendFile','🔍\x20𝗦𝗘𝗔𝗥𝗖𝗛\x20𝗖𝗠𝗗𝗦','catch','🧧\x20𝗦𝗧𝗜𝗖𝗞𝗘𝗥\x20𝗖𝗠𝗗𝗦','padStart','20oeQHsf','format','string','8WKSWZh','Studymenu*\x0a╠\x20🛡️\x20*','main','happy\x20early\x20in\x20the\x20day☀️','help','body','isArray','../package.json','「\x20*`%botname`*\x20」\x0a\x20\x0a𝗛𝗘𝗬!\x20👋🏻\x20```%name```\x0a\x20\x0a•\x20𝗗𝗔𝗧𝗘:\x20\x20```%fecha```\x0a•\x20𝗧𝗜𝗠𝗘:\x20\x20```%hora\x20(🇵🇰)\x20```\x0a•\x20𝗨𝗣𝗧𝗜𝗠𝗘:\x20\x20```%muptime```\x0a*•\x20','plugins','object','data','🪄\x20𝗙𝗨𝗡\x20𝗖𝗠𝗗𝗦','react','chat','sender','name','sort','Pon','Gamemenu*\x0a╠\x20🎩\x20*','before','fromCharCode','DateTimeFormat','conn','𝗚𝗢𝗢𝗗\x20𝗠𝗢𝗥𝗡𝗜𝗡𝗚🌥️','606429jOUTBo','limit','split','user','message','Powered\x20by\x20https://wa.me/','124170kAHLoR','6099758FBCbvo','👑\x20𝗢𝗪𝗡𝗘𝗥\x20𝗖𝗠𝗗𝗦','uptime','🕹\x20𝗕𝗢𝗧\x20𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦\x20𝗖𝗠𝗗𝗦','registered','Groupmenu*\x0a╠\x20📥\x20*','author','join','Toolsmenu*\x0a╠\x20🎨\x20*','url','once','Menu2*\x0a╚•\x0a\x20\x20\x20\x0a%readmore\x0a','Botmenu*\x0a╠\x20🧬\x20*','floor','repeat','includes','Logomenu*\x0a╠\x20📃\x20*','🎮\x20𝗚𝗔𝗠𝗘𝗦\x20𝗖𝗠𝗗𝗦','tags','users','Legi','getName','•\x20Soy\x20un\x20sub\x20bot\x20del:*\x20wa.me/','menu','🎀\x20𝗟𝗢𝗚𝗢𝗦\x20𝗖𝗠𝗗𝗦','trim','*\x0a\x0a\x0a\x20◉*`🪀𝗣𝗥𝗜𝗡𝗖𝗘\x20𝗠𝗗\x20𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦`*\x0a║\x0a╠\x20🕋\x20*','long','Ownermenu*\x0a╠\x20💌\x20*','[unknown\x20github\x20url]','toLocaleDateString','jid','🎈\x20𝗥𝗘𝗔𝗖𝗧𝗜𝗢𝗡𝗦\x20𝗖𝗠𝗗𝗦','footer','6250670aPwGiV','💻\x20𝗝𝗔𝗗𝗜𝗕𝗢𝗧\x20𝗖𝗠𝗗𝗦','send','🕋\x20𝗤𝗨𝗥𝗔𝗡\x20𝗖𝗠𝗗𝗦','command','customPrefix','Stickermenu*\x0a╠\x20🎉\x20*','📚\x20𝗦𝗧𝗨𝗗𝗬\x20𝗖𝗠𝗗𝗦','Asia/Karachi'];_0x5855=function(){return _0x4a79f8;};return _0x5855();}import _0x288eae from'node-fetch';import{createHash}from'crypto';import _0x5bc555 from'fs';import _0x393f52 from'moment-timezone';import{xpRange}from'../lib/levelling.js';let tags={'quran':_0x275e06(0x1b2),'study':_0x275e06(0x1b6),'downloader':'📥\x20𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗𝗘𝗥𝗦\x20𝗖𝗠𝗗𝗦','main':_0x275e06(0x153),'owner':_0x275e06(0x18e),'group':_0x275e06(0x15d),'bebot':_0x275e06(0x1b0),'tools':_0x275e06(0x161),'game':_0x275e06(0x19e),'rg':_0x275e06(0x142),'config':_0x275e06(0x190),'search':_0x275e06(0x166),'sticker':_0x275e06(0x168),'econ':'🛠\x20𝗥𝗣𝗚\x20𝗖𝗠𝗗𝗦','reaction':_0x275e06(0x1ad),'maker':_0x275e06(0x1a5),'fun':_0x275e06(0x179),'audio':_0x275e06(0x1b8)},handler=async(_0x4fbeb7,{conn:_0x4642d2,args:_0x5803c9,usedPrefix:_0x19a964,usedPrefix:_0x1fc062,__dirname:_0x32e86b})=>{const _0x4122f6=_0x275e06;let _0x305a60=ucapan();const _0x4fc91c={'before':(_0x4122f6(0x175)+_0x305a60+_0x4122f6(0x1a7)+_0x1fc062+_0x4122f6(0x151)+_0x1fc062+_0x4122f6(0x16e)+_0x1fc062+_0x4122f6(0x1a9)+_0x1fc062+_0x4122f6(0x199)+_0x1fc062+_0x4122f6(0x192)+_0x1fc062+_0x4122f6(0x164)+_0x1fc062+_0x4122f6(0x195)+_0x1fc062+_0x4122f6(0x1b5)+_0x1fc062+_0x4122f6(0x14d)+_0x1fc062+_0x4122f6(0x180)+_0x1fc062+_0x4122f6(0x19d)+_0x1fc062+_0x4122f6(0x198))[_0x4122f6(0x1b9)](),'header':_0x4122f6(0x14a),'body':_0x4122f6(0x14e),'footer':'╚•\x20\x0a\x0a','after':'*𝗣𝗥𝗜𝗡𝗖𝗘\x20𝗠𝗗\x20𝗕𝗢𝗧*\x0a'};try{_0x4fbeb7[_0x4122f6(0x17a)]('⏳');let _0x4b2acf=JSON[_0x4122f6(0x14b)](await promises[_0x4122f6(0x162)](join(_0x32e86b,_0x4122f6(0x174)))[_0x4122f6(0x167)](_0x39c60c=>({})))||{},{exp:_0x52f13c,limit:_0x39c8d9,level:_0x4dedd7,role:_0x126e31}=global['db']['data'][_0x4122f6(0x1a0)][_0x4fbeb7['sender']],{min:_0x2a5b2e,xp:_0x2d8f15,max:_0x2fbff4}=xpRange(_0x4dedd7,global[_0x4122f6(0x156)]),_0x11f1c4=await _0x4642d2[_0x4122f6(0x1a2)](_0x4fbeb7[_0x4122f6(0x17c)]),_0x5d14f4=new Date(new Date()+0x36ee80),_0x3aa9ed='es',_0x4aad80=_0x393f52['tz'](_0x4122f6(0x1b7))[_0x4122f6(0x16b)]('DD/MM/YYYY'),_0x56f10f=_0x393f52['tz']('Asia/Karachi')[_0x4122f6(0x16b)]('LT'),_0x14cee3={'quoted':_0x4fbeb7,'contextInfo':{'mentionedJid':[_0x4fbeb7[_0x4122f6(0x17c)]]}},_0x3e613a=['Pahing',_0x4122f6(0x17f),_0x4122f6(0x13d),'Kliwon',_0x4122f6(0x1a1)][Math[_0x4122f6(0x19a)](_0x5d14f4/0x50ae4c0)%0x5],_0x32a740=_0x5d14f4[_0x4122f6(0x1ab)](_0x3aa9ed,{'weekday':_0x4122f6(0x1a8)}),_0x376e76=_0x5d14f4['toLocaleDateString'](_0x3aa9ed,{'day':_0x4122f6(0x143),'month':'long','year':_0x4122f6(0x143)}),_0x571b52=Intl[_0x4122f6(0x183)](_0x3aa9ed+_0x4122f6(0x155),{'day':'numeric','month':_0x4122f6(0x1a8),'year':'numeric'})[_0x4122f6(0x16b)](_0x5d14f4),_0x57a3f3=_0x5d14f4['toLocaleTimeString'](_0x3aa9ed,{'hour':_0x4122f6(0x143),'minute':_0x4122f6(0x143),'second':'numeric'}),_0x3bdab0=process[_0x4122f6(0x18f)]()*0x3e8,_0x5d2a9c;process[_0x4122f6(0x1b1)]&&(process[_0x4122f6(0x1b1)](_0x4122f6(0x18f)),_0x5d2a9c=await new Promise(_0x395073=>{const _0x473b8a=_0x4122f6;process[_0x473b8a(0x197)](_0x473b8a(0x18a),_0x395073),setTimeout(_0x395073,0x3e8);})*0x3e8);let _0x388983=clockString(_0x5d2a9c),_0xe47049=clockString(_0x3bdab0),_0x2ca654='@'+_0x4fbeb7[_0x4122f6(0x17c)]['split'](_0x4122f6(0x150))[0x0],_0x15467d=Object[_0x4122f6(0x163)](global['db'][_0x4122f6(0x178)][_0x4122f6(0x1a0)])[_0x4122f6(0x147)],_0x8ba80=Object[_0x4122f6(0x15b)](global['db'][_0x4122f6(0x178)]['users'])[_0x4122f6(0x158)](_0x342824=>_0x342824[_0x4122f6(0x191)]==!![])[_0x4122f6(0x147)],_0x56ecaa=_0x4642d2[_0x4122f6(0x189)]['jid']==global[_0x4122f6(0x184)][_0x4122f6(0x189)]['jid']?_0x4122f6(0x149)+global['conn'][_0x4122f6(0x189)][_0x4122f6(0x1ac)][_0x4122f6(0x188)]`@`[0x0]:_0x4122f6(0x1a3)+global[_0x4122f6(0x184)][_0x4122f6(0x189)][_0x4122f6(0x1ac)][_0x4122f6(0x188)]`@`[0x0],_0x50f987=Object['values'](global[_0x4122f6(0x176)])['filter'](_0x386ae7=>!_0x386ae7[_0x4122f6(0x148)])[_0x4122f6(0x1ba)](_0x421413=>{const _0x3f2724=_0x4122f6;return{'help':Array[_0x3f2724(0x173)](_0x421413[_0x3f2724(0x19f)])?_0x421413[_0x3f2724(0x171)]:[_0x421413[_0x3f2724(0x171)]],'tags':Array[_0x3f2724(0x173)](_0x421413['tags'])?_0x421413['tags']:[_0x421413[_0x3f2724(0x19f)]],'prefix':_0x3f2724(0x1b4)in _0x421413,'limit':_0x421413[_0x3f2724(0x187)],'premium':_0x421413[_0x3f2724(0x13f)],'enabled':!_0x421413[_0x3f2724(0x148)]};});for(let _0x579bf2 of _0x50f987)if(_0x579bf2&&'tags'in _0x579bf2){for(let _0xda6bb1 of _0x579bf2[_0x4122f6(0x19f)])if(!(_0xda6bb1 in tags)&&_0xda6bb1)tags[_0xda6bb1]=_0xda6bb1;}_0x4642d2[_0x4122f6(0x1a4)]=_0x4642d2[_0x4122f6(0x1a4)]?_0x4642d2[_0x4122f6(0x1a4)]:{};let _0x4e6bd0=_0x4642d2[_0x4122f6(0x1a4)]['before']||_0x4fc91c[_0x4122f6(0x181)],_0x274937=_0x4642d2['menu'][_0x4122f6(0x14c)]||_0x4fc91c[_0x4122f6(0x14c)],_0x4c8d58=_0x4642d2['menu'][_0x4122f6(0x172)]||_0x4fc91c[_0x4122f6(0x172)],_0x5d743b=_0x4642d2[_0x4122f6(0x1a4)][_0x4122f6(0x1ae)]||_0x4fc91c[_0x4122f6(0x1ae)],_0x50a84b=_0x4642d2[_0x4122f6(0x1a4)][_0x4122f6(0x141)]||(_0x4642d2[_0x4122f6(0x189)][_0x4122f6(0x1ac)]==_0x4642d2[_0x4122f6(0x189)]['jid']?'':_0x4122f6(0x18b)+_0x4642d2['user'][_0x4122f6(0x1ac)][_0x4122f6(0x188)]`@`[0x0])+_0x4fc91c['after'],_0x1099f7=[_0x4e6bd0,...Object['keys'](tags)[_0x4122f6(0x1ba)](_0x404d64=>{const _0xce4dc6=_0x4122f6;return _0x274937[_0xce4dc6(0x145)](/%category/g,tags[_0x404d64])+'\x0a'+[..._0x50f987['filter'](_0x50ff55=>_0x50ff55['tags']&&_0x50ff55['tags'][_0xce4dc6(0x19c)](_0x404d64)&&_0x50ff55['help'])['map'](_0x2a62ed=>{const _0x11aefa=_0xce4dc6;return _0x2a62ed[_0x11aefa(0x171)][_0x11aefa(0x1ba)](_0x514b60=>{const _0x4fe5df=_0x11aefa;return _0x4c8d58[_0x4fe5df(0x145)](/%cmd/g,_0x2a62ed['prefix']?_0x514b60:'%p'+_0x514b60)[_0x4fe5df(0x145)](/%islimit/g,_0x2a62ed[_0x4fe5df(0x187)]?_0x4fe5df(0x15e):'')['replace'](/%isPremium/g,_0x2a62ed[_0x4fe5df(0x13f)]?_0x4fe5df(0x13e):'')[_0x4fe5df(0x1a6)]();})[_0x11aefa(0x194)]('\x0a');}),_0x5d743b][_0xce4dc6(0x194)]('\x0a');}),_0x50a84b][_0x4122f6(0x194)]('\x0a'),_0xcddaac=typeof _0x4642d2[_0x4122f6(0x1a4)]==_0x4122f6(0x16c)?_0x4642d2[_0x4122f6(0x1a4)]:typeof _0x4642d2[_0x4122f6(0x1a4)]==_0x4122f6(0x177)?_0x1099f7:'',_0x5e2a09={'%':'%','p':_0x19a964,'uptime':_0xe47049,'muptime':_0x388983,'me':_0x4642d2[_0x4122f6(0x1a2)](_0x4642d2[_0x4122f6(0x189)][_0x4122f6(0x1ac)]),'npmname':_0x4b2acf[_0x4122f6(0x17d)],'npmdesc':_0x4b2acf[_0x4122f6(0x146)],'version':_0x4b2acf['version'],'exp':_0x52f13c-_0x2a5b2e,'maxexp':_0x2d8f15,'totalexp':_0x52f13c,'xp4levelup':_0x2fbff4-_0x52f13c,'github':_0x4b2acf[_0x4122f6(0x154)]?_0x4b2acf[_0x4122f6(0x154)][_0x4122f6(0x196)]||_0x4b2acf[_0x4122f6(0x154)]:_0x4122f6(0x1aa),'level':_0x4dedd7,'limit':_0x39c8d9,'name':_0x11f1c4,'weton':_0x3e613a,'week':_0x32a740,'date':_0x376e76,'dateIslamic':_0x571b52,'time':_0x57a3f3,'totalreg':_0x15467d,'rtotalreg':_0x8ba80,'role':_0x126e31,'readmore':readMore,'fecha':_0x4aad80,'hora':_0x56f10f,'botOfc':_0x56ecaa,'botname':botname};_0xcddaac=_0xcddaac[_0x4122f6(0x145)](new RegExp('%('+Object['keys'](_0x5e2a09)[_0x4122f6(0x17e)]((_0x405aad,_0x3a8f3a)=>_0x3a8f3a[_0x4122f6(0x147)]-_0x405aad['length'])[_0x4122f6(0x194)]`|`+')','g'),(_0x9d8a24,_0x2ffb12)=>''+_0x5e2a09[_0x2ffb12]);let _0x1dc345=pimg[_0x4122f6(0x15f)]();_0x4642d2[_0x4122f6(0x165)](_0x4fbeb7[_0x4122f6(0x17b)],_0x1dc345,'menu.jpg',_0xcddaac['trim'](),_0x4fbeb7,null,{'quoted':_0x4fbeb7,'contextInfo':{'mentionedJid':[_0x4fbeb7[_0x4122f6(0x17c)]],'isForwarded':!![],'forwardedNewsletterMessageInfo':{'newsletterJid':_0x4122f6(0x157),'newsletterName':global[_0x4122f6(0x193)],'serverMessageId':-0x1},'forwardingScore':0x3e7}}),_0x4fbeb7['react']('✅');}catch(_0x4a7144){_0x4fbeb7['react']('❌');throw _0x4a7144;}};function _0x388f(_0x5eb44f,_0xd2ff1c){const _0x585577=_0x5855();return _0x388f=function(_0x388ffa,_0x2572a4){_0x388ffa=_0x388ffa-0x13d;let _0x3b921c=_0x585577[_0x388ffa];return _0x3b921c;},_0x388f(_0x5eb44f,_0xd2ff1c);}handler[_0x275e06(0x171)]=[_0x275e06(0x171)],handler[_0x275e06(0x19f)]=[_0x275e06(0x16f)],handler[_0x275e06(0x1b3)]=/^(menu|help|fu)$/i,handler[_0x275e06(0x159)]=![];export default handler;const more=String[_0x275e06(0x182)](0x200e),readMore=more[_0x275e06(0x19b)](0xfa1);function clockString(_0x3e47cf){const _0x28f9b7=_0x275e06;let _0x192344=isNaN(_0x3e47cf)?'--':Math[_0x28f9b7(0x19a)](_0x3e47cf/0x36ee80),_0x2217e9=isNaN(_0x3e47cf)?'--':Math[_0x28f9b7(0x19a)](_0x3e47cf/0xea60)%0x3c,_0x50f519=isNaN(_0x3e47cf)?'--':Math[_0x28f9b7(0x19a)](_0x3e47cf/0x3e8)%0x3c;return[_0x192344,_0x2217e9,_0x50f519][_0x28f9b7(0x1ba)](_0x357490=>_0x357490[_0x28f9b7(0x15c)]()[_0x28f9b7(0x169)](0x2,0x0))[_0x28f9b7(0x194)](':');}function ucapan(){const _0xa705ef=_0x275e06,_0x3830e0=_0x393f52['tz'](_0xa705ef(0x1b7))[_0xa705ef(0x16b)]('HH');let _0x18035d=_0xa705ef(0x170);if(_0x3830e0>=0x4)_0x18035d=_0xa705ef(0x185);if(_0x3830e0>=0xa)_0x18035d=_0xa705ef(0x144);if(_0x3830e0>=0xf)_0x18035d=_0xa705ef(0x160);if(_0x3830e0>=0x12)_0x18035d='𝗚𝗢𝗢𝗗\x20𝗡𝗜𝗚𝗛𝗧🌌';return _0x18035d;} 
+export default handler
+function clockString(ms) {
+    let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+    let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+    let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+    
+    function ucapan() {
+      const time = moment.tz('Asia/Karachi').format('HH')
+      let res = "happy early in the day☀️"
+      if (time >= 4) {
+        res = "Good Morning 🌄"
+      }
+      if (time >= 10) {
+        res = "Good Afternoon ☀️"
+     }
+      if (time >= 15) {
+        res = "Good Afternoon 🌇"
+      }
+      if (time >= 18) {
+        res = "Good Night 🌙"
+      }
+      return res
+    }
+    const quotes = [
+      "I'm not lazy, I'm just on my energy saving mode.",
+      "Life is short, smile while you still have teeth.",
+      "I may be a bad influence, but darn I am fun!",
+      "I'm on a whiskey diet. I've lost three days already.",
+      "Why don't some couples go to the gym? Because some relationships don't work out.",
+      "I told my wife she should embrace her mistakes... She gave me a hug.",
+      "I'm great at multitasking. I can waste time, be unproductive, and procrastinate all at once.",
+      "You know you're getting old when you stoop to tie your shoelaces and wonder what else you could do while you're down there.",
+      "I'm so good at sleeping, I can do it with my eyes closed.",
+      "If you think nobody cares if you’re alive, try missing a couple of payments.",
+      "I used to think I was indecisive, but now I'm not so sure.",
+      "If you can't convince them, confuse them.",
+      "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      "I'm not clumsy, I'm just on a mission to test gravity.",
+      "I told my wife she should do more push-ups. She said, 'I could do a hundred!' So I counted to ten and stopped.",
+      "Life is like a box of chocolates; it doesn't last long if you're hungry.",
+      "I'm not saying I'm Wonder Woman, I'm just saying no one has ever seen me and Wonder Woman in the same room together.",
+      "Why do they call it beauty sleep when you wake up looking like a troll?",
+      "I don't always lose my phone, but when I do, it's always on silent.",
+      "My bed is a magical place where I suddenly remember everything I was supposed to do.",
+      "I love the sound you make when you shut up.",
+      "I'm not arguing, I'm just explaining why I'm right.",
+      "I'm not a complete idiot, some parts are missing.",
+      "When life gives you lemons, squirt someone in the eye.",
+      "I don't need anger management. You just need to stop making me angry.",
+      "I'm not saying I'm Batman. I'm just saying no one has ever seen me and Batman in the same room together.",
+      "I'm not saying I'm Superman. I'm just saying no one has ever seen me and Superman in the same room together.",
+      "I'm not saying I'm Spider-Man. I'm just saying no one has ever seen me and Spider-Man in the same room together.",
+      "I'm not saying I'm a superhero. I'm just saying no one has ever seen me and a superhero in the same room together.",
+      "The early bird can have the worm because worms are gross and mornings are stupid.",
+      "If life gives you lemons, make lemonade. Then find someone whose life has given them vodka and have a party!",
+      "The road to success is always under construction.",
+      "I am so clever that sometimes I don't understand a single word of what I am saying.",
+      "Some people just need a high-five. In the face. With a chair.",
+      "I'm not saying I'm perfect, but I'm pretty close.",
+      "A day without sunshine is like, you know, night.",
+      "The best way to predict the future is to create it.",
+      "If you can't be a good example, then you'll just have to be a horrible warning.",
+      "I don't know why I keep hitting the escape button. I'm just trying to get out of here.",
+      "I'm not lazy. I'm on energy-saving mode.",
+      "I don't need a hairstylist, my pillow gives me a new hairstyle every morning.",
+      "I don't have a bad handwriting, I have my own font.",
+      "I'm not clumsy. It's just the floor hates me, the table and chairs are bullies, and the walls get in my way.",
+      "I'm not saying I'm Batman. I'm just saying no one has ever seen me and Batman in the same room together.",
+      "I'm not saying I'm Wonder Woman. I'm just saying no one has ever seen me and Wonder Woman in the same room together.",
+      "I'm not saying I'm Superman. I'm just saying no one has ever seen me and Superman in the same room together.",
+      "I'm not saying I'm Spider-Man. I'm just saying no one has ever seen me and Spider-Man in the same room together.",
+      "I'm not saying I'm a superhero. I'm just saying no one has ever seen me and a superhero in the same room together."
+];
