@@ -131,9 +131,8 @@ global.imagen11 = fs.readFileSync("./Assets/menus/img12.jpg")
 
 global.imag1 = fs.readFileSync("./Assets/prn.png")
 global.imag2 = fs.readFileSync("./Assets/prn1.png")
-global.imag3 = fs.readFileSync("./Assets/prn2.jpg")
 
-global.pimg = [imag1, imag2, imag3]
+global.pimg = [imag1, imag2]
 
 
 
@@ -152,11 +151,11 @@ global.developer = 'https://wa.me/message/DCAK67ON3XVOG1' //contact
 //Sticker WM
 global.wm = process.env.BOT_NAME
 global.botname = process.env.BOT_NAME
-global.princebot = '🛡️𝘗𝘙𝘐𝘕𝘊𝘌-𝘉𝘖𝘛-𝘔𝘋🛡️'
+global.princebot = process.env.PACK_NAME
 global.packname = process.env.PACK_NAME
-global.author = 'Prince♥️' 
+global.author = 'Fꫀׁׅܻᥣׁׅ֪ꪱׁׅ᥊ׁׅ' 
 global.princeig = 'https://www.instagram.com' 
-global.princegp = 'https://whatsapp.com/channel/0029VaKNbWkKbYMLb61S1v11'
+global.princegp = 'https://whatsapp.com/channel/0029bWkKbYMLb61S1v11'
 global.menuvid = 'https://i.imgur.com/GFAAXqw.mp4'
 global.Princesc = 'https://github.com/PRINCE-GDS/THE-PRINCE-BOT' 
 global.princeyt = 'https://youtube.com/'
