@@ -36,22 +36,23 @@ let greeting = ucapan()
 let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-let str = ` *𝐅𝖾ᥣ𝗂𝗑 𝐊α 𝐁ⱺ𝗍*
+let str = `❯─「Ƒᥱᥣ𝗂᥊ - Ɲᥲᥲꭑ Ƭ᥆ɦ Ƨᥙᥒᥲ Ӈ𝗂 Ӈ᥆𝗀ᥲ」─❮`
 
-
-▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒  𝐖𝖾ᥣ𝖼⃢ⱺꭑ𝖾 𝐓⃕ⱺ 𝐅𝖾ᥣ⃝𝗂𝗑 𝐌𝖾𐓣υ⃭ ▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒  
-
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＱｕｒａｎＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＳｔｕｄｙＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＯｗｎｅｒＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＢｏｔＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＧｒｏｕｐＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＤｌＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＴｏｏｌＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＳｔｉｃｋｅｒＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＦｕｎＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.   「${usedPrefix}ＧａｍｅＭｅｎｕ
-͏██  𝆭 𝆺̸̶𝅥⃝🍶⃞.  「${usedPrefix}ＬｏｇｏＭｅｎｕ
+ ‌ ‌ ‌ ‌ ‌ ‌             `﹀‌` 
+‌*⎯𝗶 𝐿𝗈᳟𝗏𝖾 𝗒ֺ𖹭𝄅𝗎 𝖾vë𝗇 𝗍𝗁𝗈𝗎𝗀𝗁 ᥡׄ𝗈𝗎 𝖾𝗇𝖽𝖾𝖽 𝗈𝗎𝗋 𝗅𝗈𝗏𝖾 ۪ ꒱ ֹ*
+‌ ‌ ‌                 `︿`
+     ‌ ‌ ‌ ‌  
+͏██  「${usedPrefix}ＱｕｒａｎＭｅｎｕ
+͏██  「${usedPrefix}ＳｔｕｄｙＭｅｎｕ
+͏██  「${usedPrefix}ＯｗｎｅｒＭｅｎｕ
+͏██  「${usedPrefix}ＢｏｔＭｅｎｕ
+͏██  「${usedPrefix}ＧｒｏｕｐＭｅｎｕ
+͏██  「${usedPrefix}ＤｌＭｅｎｕ
+͏██  「${usedPrefix}ＴｏｏｌＭｅｎｕ
+͏██  「${usedPrefix}ＳｔｉｃｋｅｒＭｅｎｕ
+͏██  「${usedPrefix}ＦｕｎＭｅｎｕ
+͏██  「${usedPrefix}ＧａｍｅＭｅｎｕ
+͏██  「${usedPrefix}ＬｏｇｏＭｅｎｕ
 
 ▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒   *${usedPrefix}𝐌𝖾𐓣υ 2 𝐅ⱺ𝗋 𝐂ⱺꭑꭑα𐓣ᑯ 𝐋𝗂𝗌𝗍*
 ▬᳢̅ ⃞ᩦؙ︩︪̆፝⚓᷒   *${usedPrefix}𝐌𝖾𐓣υ 3 𝐅ⱺ𝗋 𝐂ⱺꭑꭑα𐓣ᑯ 𝐋𝗂𝗌𝗍*
