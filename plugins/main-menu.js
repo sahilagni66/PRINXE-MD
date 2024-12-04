@@ -36,11 +36,12 @@ let greeting = ucapan()
 let quote = quotes[Math.floor(Math.random() * quotes.length)];
 
 let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-let str = ` *Ƒᥱᥣ𝗂᥊ - Ɲᥲᥲꭑ Ƭ᥆ɦ Ƨᥙᥒᥲ Ӈ𝗂 Ӈ᥆𝗀ᥲ*
+let str = ` *𝐌⃝𝗂𐓣ᑯ 𝗒ⱺυ'𝗋𝖾 ⱺω𐓣 ᑲυ𝗌𝗂𐓣𝖾𝗌𝗌𓋜*
 
- ‌ ‌ ‌ ‌ ‌ ‌             ﹀‌ 
-‌*⎯𝗶 𝐿𝗈᳟𝗏𝖾 𝗒ֺ𖹭𝄅𝗎 𝖾vë𝗇 𝗍𝗁𝗈𝗎𝗀𝗁 ᥡׄ𝗈𝗎 𝖾𝗇𝖽𝖾𝖽 𝗈𝗎𝗋 𝗅𝗈𝗏𝖾 ۪ ꒱ ֹ*
-‌ ‌ ‌                 ︿
+> Ｆｅｌｉｘ
+ ‌ ‌ ‌ ‌ ‌ ‌             *﹀‌* 
+‌*𝗶 𝐿𝗈᳟𝗏𝖾 𝗒ֺ𖹭𝄅𝗎 𝖾vë𝗇 𝗍𝗁𝗈𝗎𝗀𝗁 ᥡׄ𝗈𝗎 𝖾𝗇𝖽𝖾𝖽 𝗈𝗎𝗋 𝗅𝗈𝗏𝖾 ۪ ꒱ ֹ*
+‌ ‌ ‌                 *︿*
      ‌ ‌ ‌ ‌  
 ͏██  「${usedPrefix}ＱｕｒａｎＭｅｎｕ
 ͏██  「${usedPrefix}ＳｔｕｄｙＭｅｎｕ
